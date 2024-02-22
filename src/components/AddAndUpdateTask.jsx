@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 
 const AddAndUpdateTask = ({ onClose, type }) => {
   const { state, dispatch } = useContext(TasksContext);
+  const [error, setError] = useState("");
 
   const [title, setTitle] = useState(
     state?.updatedTasksData?.data?.title || ""
@@ -19,6 +20,8 @@ const AddAndUpdateTask = ({ onClose, type }) => {
   const [priority, setPriority] = useState(
     state?.updatedTasksData?.data?.priority || ""
   );
+
+  console.log(tagInput);
 
   const handleTagInputChange = (event) => {
     setTagInput(event.target.value);
@@ -147,6 +150,9 @@ const AddAndUpdateTask = ({ onClose, type }) => {
         </div>
       </div>
       {/* <!-- inputs ends --> */}
+
+      {/* {!tags?.length && <p>Error</p>} */}
+
       <div className="mt-16 flex justify-center lg:mt-20">
         <button
           // onClick={onClose}
